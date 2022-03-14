@@ -24,7 +24,6 @@ def serviceB():
             start = data['start']
             end = data['end']
 
-
             #In this case I want to make a database query for the customer, to be able to fetch discounts
             #and agreed price, If no price is agreed it will be the default. Since this is a micro service I will assume
             #that a database storing all the customers with their agreed prices, can be queried.
@@ -51,12 +50,9 @@ def serviceB():
             if discount < 0:
                 discount = 0
 
-
-
             if discount != 0:
                 new_discounted_price = (100-discount)/100*ServiceB.base_price
                 ServiceB.base_price = new_discounted_price
-
 
             days = help.days(start, end)
             if free_days != 0:
@@ -69,7 +65,6 @@ def serviceB():
                     database.updateFreeDays(customer_id,days_left)
                 days = days - free_days
             total_price =  days * ServiceB.base_price
-
 
             if total_price < 0:
                 total_price = 0
@@ -84,15 +79,7 @@ def serviceB():
                 "estimated-price-euro": "{:.2f}".format(total_price),
                 }
 
-
         return jsonify(obj)
 
     except IndexError:
             return "Error in body of the request.", 400
-
-
-
-
-
-
-
