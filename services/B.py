@@ -7,9 +7,9 @@ import datetime
 
 class B():
 	def __init__(self,customer_id, base_price=0.24, discount = 0):
-		self.customer_id = customer_id
-		self.base_price = base_price
-		self.discount = discount
+	    self.customer_id = customer_id
+            self.base_price = base_price
+	    self.discount = discount
 		
 def serviceB():
     try:
