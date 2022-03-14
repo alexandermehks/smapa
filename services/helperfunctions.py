@@ -19,7 +19,5 @@ def days(start_date, end_date, serviceC = False):
                 day_count += 1
         else:
             day_count += 1
-
-        
         start_date += delta
     return day_count 
