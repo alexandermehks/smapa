@@ -1,13 +1,5 @@
-
-
-
-
-
-
-dbConnection = "/home/am/git/smapa/simulate_db.db"
-
-
-
+#I used a local DB for testing purpose
+dbConnection = "PATH_TO_DB"
 
 
 def getCustomer(customer_id):
