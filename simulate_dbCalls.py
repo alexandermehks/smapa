@@ -1,7 +1,6 @@
 #I used a local DB for testing purpose
 dbConnection = "PATH_TO_DB"
 
-
 def getCustomer(customer_id):
     import sqlite3
     connection = sqlite3.connect(dbConnection)
@@ -20,7 +19,6 @@ def getCustomer(customer_id):
     c.close()
     return obj
 
-
 def updateFreeDays(customer_id, amount):
     import sqlite3
     connection = sqlite3.connect(dbConnection)
@@ -28,7 +26,6 @@ def updateFreeDays(customer_id, amount):
     c.execute("UPDATE customer set free_days = (?) WHERE customer_id = (?)", (amount, customer_id,))
     connection.commit()
     c.close()
-
 
 def insertStartDate(customer_id,date, service=None):
     import sqlite3
