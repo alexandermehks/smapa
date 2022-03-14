@@ -13,7 +13,7 @@ class C():
 		
 def serviceC():
     try:
-            
+	
         if request.method == 'GET':
             return "400",400 
 
@@ -23,7 +23,6 @@ def serviceC():
             customer_id = data['customer_id']
             start = data['start']
             end = data['end']
-
 
             #In this case I want to make a database query for the customer, to be able to fetch discounts
             #and agreed price, If no price is agreed it will be the default. Since this is a micro service I will assume
@@ -46,17 +45,14 @@ def serviceC():
             if customer_db["price-C"] != 0:
                 ServiceC.base_price = customer_db["price-C"]
 
-
             if discount > 100:
                 discount = 100
             if discount < 0:
                 discount = 0
 
-
             if discount != 0:
                 new_discounted_price = (100-discount)/100*ServiceC.base_price
                 ServiceC.base_price = new_discounted_price
-
 
             days = help.days(start, end, serviceC=True)
             if free_days != 0:
@@ -84,16 +80,7 @@ def serviceC():
                 "estimated-price-euro": "{:.2f}".format(total_price),
                 }
 
-
         return jsonify(obj)
 
     except IndexError:
             return "Error in body of the request.", 400
-
-
-
-
-
-
-
-
