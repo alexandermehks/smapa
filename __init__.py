@@ -6,7 +6,6 @@ app = Flask(__name__)
 def hello():
     return "Hello World!" 
 
-
 #Endpoints
 app.add_url_rule('/service-a', view_func=A.serviceA, methods=['GET', 'POST'])
 app.add_url_rule('/service-b', view_func=B.serviceB, methods=['GET', 'POST'])
