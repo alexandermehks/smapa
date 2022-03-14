@@ -1,8 +1,6 @@
 import datetime
 from datetime import date, timedelta
 
-
-
 #Helper function that will help to calculate the days in the period given
 def days(start_date, end_date, serviceC = False):
     holidays = [5,6]
@@ -25,10 +23,3 @@ def days(start_date, end_date, serviceC = False):
         
         start_date += delta
     return day_count 
-
-
-
-
-
-
-
