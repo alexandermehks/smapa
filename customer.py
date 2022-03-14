@@ -7,11 +7,5 @@ class Customer:
             self.free_days = free_days
             self.start_date = start_date
 
-
-
-
-
-
-
 Alexander = Customer(25, 2015-11-12)
 
