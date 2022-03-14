@@ -24,7 +24,6 @@ def serviceA():
             start = data['start']
             end = data['end']
 
-
             #In this case I want to make a database query for the customer, to be able to fetch discounts
             #and agreed price, If no price is agreed it will be the default. Since this is a micro service I will assume
             #that a database storing all the customers with their agreed prices, can be queried.
@@ -46,18 +45,14 @@ def serviceA():
             if customer_db["price-A"] != 0:
                 ServiceA.base_price = customer_db["price-A"]
 
-
             if discount > 100:
                 discount = 100
             if discount < 0:
                 discount = 0
 
-
-
             if discount != 0:
                 new_discounted_price = (100-discount)/100*ServiceA.base_price
                 ServiceA.base_price = new_discounted_price
-
 
             days = help.days(start, end)
             if free_days != 0:
@@ -85,19 +80,7 @@ def serviceA():
                 "estimated-price-euro": "{:.2f}".format(total_price),
                 }
 
-
             return jsonify(obj)
 
     except IndexError:
             return "Error in body of the request", 400
-
-
-
-
-
-
-
-
-
-		
-
